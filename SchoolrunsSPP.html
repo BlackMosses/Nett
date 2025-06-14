@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyPastQuestions | Premium Exam Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #007bff;
+      --secondary-color: #28a745;
+      --background-color: #f0f0f0;
+      --section-bg: #ffffff;
+      --header-bg: #2f2f2f;
+      --text-dark: #212529;
+      --font-family: 'Montserrat', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: var(--font-family);
+      background-color: var(--background-color);
+      color: var(--text-dark);
+    }
+    header {
+      background-color: var(--header-bg);
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .icons i {
+      font-size: 22px;
+      cursor: pointer;
+    }
+    .pin-widget {
+      display: flex;
+      gap: 8px;
+    }
+    .pin-widget input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 80px;
+      font-size: 16px;
+    }
+    .pin-widget button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .hero {
+      background: linear-gradient(to bottom, #000000, #0056b3);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 800;
+    }
+    .hero p {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+    .hero .cta {
+      margin-top: 25px;
+      background-color: orange;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      width: 90%;
+      font-size: 16px;
+      font-weight: bold;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+    .hero .cta span {
+      display: inline-block;
+      animation: marquee 12s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .channel-buttons {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .channel-buttons button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
+    .whatsapp-btn {
+      background-color: var(--secondary-color);
+    }
+    .telegram-btn {
+      background-color: var(--primary-color);
+    }
+
+    .blogs {
+      background-color: var(--section-bg);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .blogs h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .ad-banner {
+      height: 60px;
+      background-color: #efefef;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #777;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+    .ft-card {
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      background-color: #fafafa;
+    }
+    .ft-card:hover {
+      transform: translateY(-5px);
+      background-color: #fff;
+    }
+    .ft-card h3 {
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .ft-card p {
+      font-size: 14px;
+      margin-top: 5px;
+      color: #555;
+    }
+
+    footer {
+      margin-top: 20px;
+      background-color: #e0e0e0;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="icons">
+      <i class="fas fa-home" onclick="window.location.href='index.html'"></i>
+      <i class="fab fa-whatsapp" onclick="window.location.href='https://wa.me/2340000000000'"></i>
+    </div>
+    <div class="pin-widget">
+      <input type="text" id="pinInput" placeholder="PIN" maxlength="4" />
+      <button onclick="checkPin()">Unlock</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>MYPASTQUESTIONS.COM</h1>
+    <p>Get sure exam runs questions on all subjects for FREE</p>
+    <button class="cta" onclick="window.location.href='https://google.com'">
+      <span>Join us now on WhatsApp</span>
+    </button>
+  </section>
+
+  <section class="channel-buttons">
+    <button class="whatsapp-btn" onclick="window.location.href='https://wa.me/2340000000000'">
+      <i class="fab fa-whatsapp"></i> Join our WhatsApp channel now
+    </button>
+    <button class="telegram-btn" onclick="window.location.href='https://t.me/samplechannel'">
+      <i class="fab fa-telegram"></i> Join our Telegram channel now
+    </button>
+  </section>
+
+  <section class="blogs">
+    <h2>BLOGS</h2>
+    <div class="ad-banner">Ad Banner Placeholder</div>
+    <!-- Blog Cards -->
+    <div class="ft-card" onclick="window.location.href='https://google.com'">
+      <h3>Waec Office Answers</h3>
+      <p>Learn how to check your WAEC score online with ease. This guide walks you through all the steps...</p>
+    </div>
+    <div class="ft-card" onclick="window.location.href='https://google.com'">
+      <h3>Waec Office Answers</h3>
+      <p>Learn how to check your WAEC score online with ease. This guide walks you through all the steps...</p>
+    </div>
+    <div class="ft-card" onclick="window.location.href='https://google.com'">
+      <h3>Waec Office Answers</h3>
+      <p>Learn how to check your WAEC score online with ease. This guide walks you through all the steps...</p>
+    </div>
+    <div class="ft-card" onclick="window.location.href='https://google.com'">
+      <h3>Waec Office Answers</h3>
+      <p>Learn how to check your WAEC score online with ease. This guide walks you through all the steps...</p>
+    </div>
+    <div class="ft-card" onclick="window.location.href='https://google.com'">
+      <h3>Waec Office Answers</h3>
+      <p>Learn how to check your WAEC score online with ease. This guide walks you through all the steps...</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 MyPastQuestions.com | Empowering Students Daily
+  </footer>
+
+  <script>
+    function checkPin() {
+      const pin = document.getElementById('pinInput').value;
+      const validPins = {
+        '1234': 'https://google.com',
+        '5678': 'https://ahrefs.com'
+      };
+      if (validPins[pin]) {
+        window.location.href = validPins[pin];
+      } else {
+        alert('Incorrect PIN');
+      }
+    }
+  </script>
+</body>
+</html>
